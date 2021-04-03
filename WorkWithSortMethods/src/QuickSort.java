@@ -3,30 +3,30 @@ public class QuickSort {
     static int [] a;
 
     private static void quickSort(int left, int right){
-        int i = left;
-        int j = right;
-        int pointer = QuickSort.a[(left + right) / 2];
+        int i = left; // левая граница
+        int j = right; // правая граница
+        int pointer = QuickSort.a[(left + right) / 2]; // опорная точка
 
         while (i < j){
-            while (a[i] < pointer){
+            while (a[i] < pointer){ // если число левой границы меньше опорной точки, то берем следующую границу (++)
                 i ++;
             }
-            while (a[j] > pointer){
+            while (a[j] > pointer){ // если число правлй границы больше опорной точки, то берем следующую границу (--)
                 j --;
             }
-            if (i <= j){
-                int temp = a[i];
+            if (i <= j){ // проверка на столкновение границ, если true, то меняем местами a[i] и a[j]
+                int temp = a[i]; // создаем временную переменную для перестановки местами чисел
                 a[i] = a[j];
                 a[j] = temp;
                 i ++;
                 j --;
             }
         }
-        if (left < j){
-            quickSort(left, j);
+        if (left < j){ // работа с левой частью
+            quickSort(left, j); // запуск метода рекурсивно для левой части
         }
-        if (i < right){
-            quickSort(i, right);
+        if (i < right){ // работа с правой частью
+            quickSort(i, right); // запуск метода рекурсивно для правой части
         }
     }
 
