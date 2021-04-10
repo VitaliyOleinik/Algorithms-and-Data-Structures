@@ -12,14 +12,20 @@ public class Sort {
             used[i] = 0;
         }
         Arrays.sort(a);
+        int[] b = new int[n];
+        int j = n;
+        for (int i = 0; i < n; i++) {
+            b[j - 1] = a[i];
+            j = j - 1;
+        }
         int ans = 0;
         for (int i = 0; i < n; i++){
             if (used[i] == 0){
                 ans++;
                 used[i] = 1;
-                for (int j = i + 1; j < n; j++) {
-                    if (used[j] == 0 && a[i] + a[j] <= d) {
-                        used[j] = 1;
+                for (int k = i + 1; k < n; k++) {
+                    if (used[k] == 0 && b[i] + b[k] <= d) {
+                        used[k] = 1;
                     }
             }
         }
