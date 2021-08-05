@@ -1,3 +1,5 @@
+package tasks;
+
 public class IterativeAndRecursionProcessFactorial {
     private static long factorialIterative (int number) {
         int factorial = 1;
